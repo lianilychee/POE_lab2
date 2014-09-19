@@ -7,20 +7,21 @@ Test: verify that sensor voltage/distance readings match datasheet
 const int analogInPin = A0;  // Analog input pin that the potentiometer is attached to
 const int analogOutPin = 9; // Analog output pin that the LED is attached to
 
-int sensorValue = 0;        // value read from the infrared sensor
-int outputValue = 0;        // value output to the PWM (analog out) of infrared sensor
+int sensorVal = 0;        // value read from the infrared sensor
+int outputVal = 0;        // value output to the PWM (analog out) of infrared sensor
 
 void setup() {
   Serial.begin(9600); 
 }
 
 void loop() {
-  sensorValue = analogRead(analogInPin);    // read analog in value        
-  outputValue = map(sensorValue, 0, 1023, 0, 255);  // map it to range of analog out
+  sensorVal = analogRead(analogInPin);    // read analog in value        
+  outputVal = map(sensorVal, 0, 1023, 0, 255);  // map it to range of analog out
   // change the analog out value:
-  analogWrite(analogOutPin, outputValue);           
+  analogWrite(analogOutPin, outputVal);           
 
-  Serial.println(sensorValue);
+  Serial.println(sensorValue); // prints 400?  don't know how that corresponds to voltage
+  //Serial.println(outputVal);
 
   // print the results to the serial monitor:
 //  Serial.print("sensor = " );                       
