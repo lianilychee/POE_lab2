@@ -22,8 +22,9 @@ void loop() {
 
   // print the results to the serial monitor:
   Serial.print("sensor = " );                       
-  Serial.print(sensorVal);      
-  Serial.print("\t output = ");      
+  Serial.print(sensorVal);
+  Serial.print(", ");  
+  Serial.print("output = ");      
   Serial.println(outputVal);   
 
   delay(2);   // wait 2ms before next loop for analog-digital converter to settle after last reading                  
