@@ -1,6 +1,7 @@
 % This script is for the IR Sensor calibration.
 % In order to scale the raw sensor reading to volts, divide the raw
 % sensor reading by 200.
+% Conversion is being done in MATLAB to conserve Arduino space.s
 
 data = load('irSensor_calibration.csv');
 sensor_out = data(:,1);
