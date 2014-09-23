@@ -13,26 +13,44 @@
 #include <Servo.h> 
  
 // Initialize servos
-Servo servo1;  // servo object to control a servo (maximum eight servo objects can be created)
-int pos1 = 0;    // store servo position 
-Servo servo2;
-int post2 = 0;
+Servo pan;  // servo object to control a servo (maximum eight servo objects can be created)
+int pan_pos = 0;    // store servo position 
+Servo tilt;
+int tilt_pos = 0;
  
 void setup() { 
-  servo1.attach(8);  // attaches the servo on pin 9 to the servo object 
-  servo2.attach(9);
+  pan.attach(9);  // attaches the servo on pin 9 to the servo object 
+  tilt.attach(10);
   Serial.begin(9600);
 } 
  
 void loop() { 
-  for(pos1 = 0; pos1 < 180; pos1 += 1){  // goes from 0 degrees to 180 degrees // in steps of 1 degree 
-    servo1.write(pos1);              // tell servo to go to position in variable 'pos' 
-    Serial.println(pos1);
+  
+  for(pan_pos = 0; pan_pos < 180; pan_pos += 1){  // goes from 0 degrees to 180 degrees // in steps of 1 degree 
+    
+    pan.write(pan_pos);              // tell servo to go to position in variable 'pos' 
+    Serial.print("Pan: ");
+    Serial.println(pan_pos);
     delay(15);      // waits 15ms for the servo to reach the position 
+    
+    tilt_pos = tilt_pos + 5;
+    tilt.write(tilt_pos);
+    Serial.print("Tilt: ");
+    Serial.println(tilt_pos);
+    delay(15);
   }
-  for(pos1 = 180; pos1 >= 1; pos1 -= 1){     // goes from 180 degrees to 0 degrees 
-    servo1.write(pos1);              // tell servo to go to position in variable 'pos' 
-    Serial.println(pos1);
+  
+  for(pan_pos = 180; pan_pos >= 1; pan_pos -= 1){     // goes from 180 degrees to 0 degrees 
+  
+    pan.write(pan_pos);              // tell servo to go to position in variable 'pos' 
+    Serial.print("Pan: ");
+    Serial.println(pan_pos);
     delay(15);                       // waits 15ms for the servo to reach the position 
+    
+    tilt_pos = tilt_pos + 5;
+    tilt.write(tilt_pos);
+    Serial.print("Tilt: ");
+    Serial.println(tilt_pos);
+    delay(15);
   } 
 }
