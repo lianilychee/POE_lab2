@@ -14,8 +14,7 @@ void setup() {
 
 void loop() {
   sensorVal = analogRead(analogInPin);    // read analog in value        
-//  v = sensorVal/200;   // convert to volts
-//  dist = pow((38.957/v),(1000/887));
+  v = sensorVal/200;   // convert to volts
   
   Serial.println(sensorVal);
 
