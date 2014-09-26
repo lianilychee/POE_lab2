@@ -14,26 +14,16 @@ void setup() {
  
 void loop() { 
   
-  Serial.println("hello world");  
-  for (tilt_pos = 0; tilt_pos < 180; tilt_pos += 1) {
-    tilt.write(tilt_pos);
-    delay(15);
-  }
-  for (tilt_pos = 180; tilt_pos >= 1; tilt_pos -= 1) {
-    tilt.write(tilt_pos);
-    delay(15);
-  }
+  tilt.write(tilt_pos);
+  pan.write(pan_pos); 
 
-  
   for (pan_pos = 0; pan_pos < 180; pan_pos += 1){  // goes from 0 degrees to 180 degrees // in steps of 1 degree 
     
-    pan.write(pan_pos);              // tell servo to go to position in variable 'pos' 
-//    Serial.print("Pan: ");
-//    Serial.println(pan_pos);
+    pan.write(pan_pos);  // tell servo to go to position in variable 'pos' 
     delay(15);      // waits 15ms for the servo to reach the position 
     
-    if (pan_pos > 179) {
-      Serial.println("pan maxed");\
+    if (pan_pos >= 179) {
+      Serial.println("pan > 179");\
       tilt_pos = tilt_pos + 5;
       tilt.write(tilt_pos);
       Serial.print("Tilt: ");
@@ -46,12 +36,10 @@ void loop() {
   for (pan_pos = 180; pan_pos >= 1; pan_pos -= 1){     // goes from 180 degrees to 0 degrees 
   
     pan.write(pan_pos);              // tell servo to go to position in variable 'pos' 
-//    Serial.print("Pan: ");
-//    Serial.println(pan_pos);
     delay(15);                       // waits 15ms for the servo to reach the position 
     
-    if (pan_pos < 1){
-      Serial.println("pan maxed");
+    if (pan_pos <= 1){
+      Serial.println("pan <= 1");
       tilt_pos = tilt_pos + 5;
       tilt.write(tilt_pos);
       Serial.print("Tilt: ");
@@ -59,5 +47,10 @@ void loop() {
       delay(15);
     }
 
+  }
+ 
+  if (tilt_pos = 180) {
+    tilt_pos = 0;
+    tilt.write(tilt_pos);
   } 
 }
