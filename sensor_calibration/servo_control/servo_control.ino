@@ -49,7 +49,7 @@ void loop() {
 
   }
  
-  if (tilt_pos = 180) {
+  if (tilt_pos >= 180) {
     tilt_pos = 0;
     tilt.write(tilt_pos);
   } 
