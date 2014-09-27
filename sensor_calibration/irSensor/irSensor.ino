@@ -1,7 +1,3 @@
-/*
-Test: verify that sensor voltage/distance readings match datasheet 
- */
-
 // Pin definition
 const float analogInPin = A0;  // Infrared sensor to Analog
 float sensorVal = 0;        // value read from the infrared sensor
@@ -13,6 +9,7 @@ void setup() {
 }
 
 void loop() {
+  
   sensorVal = analogRead(analogInPin);    // read analog in value        
   v = sensorVal/200;   // convert to volts
   
