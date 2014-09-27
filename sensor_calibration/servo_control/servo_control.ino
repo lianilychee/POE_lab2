@@ -22,19 +22,16 @@ void loop() {
     delay(15);      // waits 15ms for the servo to reach the position 
     
     if (pan_pos >= 179) {
-//      Serial.println("pan > 179");
-      tilt_pos = tilt_pos + 5;
+      tilt_pos = tilt_pos + 10;
       tilt.write(tilt_pos);
-//      Serial.print("Tilt: ");
-//      Serial.println(tilt_pos);
       delay(15);
     } 
-    Serial.println(tilt_pos);
-    Serial.print("  ");
+    
+    Serial.print(tilt_pos);
+    Serial.print(",");
     Serial.print(pan_pos);
-    Serial.print("  ");
-    Serial.print(1);
-    Serial.print("  ");
+    Serial.print(",");
+    Serial.println(1);
   }
   
   for (pan_pos = 180; pan_pos >= 1; pan_pos -= 1){     // goes from 180 degrees to 0 degrees 
@@ -42,19 +39,15 @@ void loop() {
     delay(15);                       // waits 15ms for the servo to reach the position 
     
     if (pan_pos <= 1){
-//      Serial.println("pan <= 1");
-      tilt_pos = tilt_pos + 5;
+      tilt_pos = tilt_pos + 10;
       tilt.write(tilt_pos);
-//      Serial.print("Tilt: ");
-//      Serial.println(tilt_pos);
       delay(15);
     }
-    Serial.println(tilt_pos);
-    Serial.print("  ");
+    Serial.print(tilt_pos);
+    Serial.print(",");
     Serial.print(pan_pos);
-    Serial.print("  ");
-    Serial.print(1);
-    Serial.print("  ");
+    Serial.print(",");
+    Serial.println(1);
   }
  
   if (tilt_pos >= 180) {
