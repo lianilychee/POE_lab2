@@ -12,8 +12,5 @@ pan = data(:,2);
 tilt = data(:,1);
 ir = data(:,3);
 
-% Validating servo motion
 figure(1);
-clf;
-hold on;
 plot (pan, tilt);
